@@ -21,13 +21,13 @@ def pow_int(a, b):
 
 def my_sqrt(i, prec):
     a = 0
-    b = 1
-    while abs(i - a*a) >= prec:
-        if pow_int(a + b, 2) > i:
-            b /= 10
-            continue
+    b = i
+    while (b - a) >= prec:
+        mid = (a + b) / 2
+        if pow_int(mid, 2) > i:
+            b = mid
         else:
-            a +=b
+            a = mid
     return a
 
 
@@ -91,6 +91,9 @@ def arg_to_tab(lst, i):
 
 def tab_to_poly(t):
     tab = [0, 0, 0]
+    if i[0] > 2 or i[0] < 0:
+        print("Wrong input")
+        exit()
     for i in t:
         tab[i[1]] += i[0]
     if tab[1] == 0 and tab[2] == 0:
