@@ -1,6 +1,3 @@
-a = str(input())
-
-
 def my_abs(x):
     if x < 0:
         return -x
@@ -136,7 +133,7 @@ def resolve(tab):
 
 
 
-def handle_input(lst):
+def run(lst):
     lst = lst.replace(" ", "")
     lst = lst.replace("-", "+-")
     if not len(lst) == 0 and lst[0] == '+':
@@ -169,4 +166,8 @@ def handle_input(lst):
     return resolve(tab)
 
 
-handle_input(a)
+if __name__ == '__main__':
+    print("Write down an equation to solve")
+    equation = str(input())
+    run(equation)
+
